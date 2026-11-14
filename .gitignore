@@ -1,0 +1,96 @@
+# ---------------------------------------------------------------
+# course-selection-system-design
+#
+# 本仓库只归档「设计文档 + 截图」，没有源代码。
+# 因此这里的规则目标很单纯：挡住本机环境产物、编辑器杂项、
+# 以及体积过大的二进制/临时文件，同时**明确放行** PDF 报告与截图。
+# ---------------------------------------------------------------
+
+# ---------- 明确放行（写在最前面，方便日后维护时一眼看到） ----------
+# 报告与截图必须入库，不能被下面的通配规则误伤。
+!docs/course-design-report.pdf
+!docs/course-design-report.docx
+!docs/images/
+!docs/images/*.png
+!docs/images/*.jpg
+!docs/images/*.jpeg
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ---------- 虚拟环境 ----------
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# ---------- Django ----------
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+/staticfiles/
+/media/
+# 注意：设计文档里的截图放在 docs/images/，与 Django 的 media/ 无关，
+# 上面的 /media/ 已用前导斜杠锚定到项目根目录，不会误删文档截图。
+
+# ---------- 环境变量 / 密钥 ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+
+# ---------- 编辑器 / IDE ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# ---------- 操作系统 ----------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ---------- Office / WPS 临时文件 ----------
+# 只挡 ~$ 开头的锁文件，正式的 .docx / .pdf 报告仍然正常提交。
+~$*
+*.tmp
+*.temp
+
+# ---------- 打包 / 压缩 ----------
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
