@@ -19,7 +19,7 @@
 
 之所以仍然公开，是因为**「代码丢了」不等于「设计过程不存在」**。设计文档里的取舍判断，恰好是简历上最难被证伪、也最难被模仿的部分。
 
-📄 完整报告：[`docs/course-design-report.docx`](docs/course-design-report.docx)（《空间数据库课程设计实践报告》，2025 年 6 月）
+📄 完整报告：[PDF 版（60 页，可直接在线看）](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/course-design-report.pdf) · [DOCX 原件](https://github.com/xiaohuajia2005/course-selection-system-design/blob/main/docs/course-design-report.docx)（《空间数据库课程设计实践报告》，2025 年 6 月）
 
 ---
 
@@ -57,13 +57,13 @@
 
 注册 → 登录 → 按角色分流（教师端 / 学生端）→ 进入课程列表页 → 分流到创建课程、课程详情、个人信息、搜索、当前课程、已结课程、选课、撤课等操作。
 
-![业务流程图](docs/images/01-business-flow.png)
+![业务流程图](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/01-business-flow.png)
 
 ### 功能结构
 
 系统在结构上拆为五块：用户管理、课程管理、选课管理、统计分析、系统管理。
 
-![系统功能结构图](docs/images/02-function-structure.jpeg)
+![系统功能结构图](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/02-function-structure.jpeg)
 
 > 说明：上图中的「统计分析」「系统管理」是设计阶段规划的完整功能域，课程设计期间实际交付的是用户管理、课程管理、选课管理三条主线。保留原图，是为了让设计意图与实现范围的区别一目了然。
 
@@ -71,33 +71,33 @@
 
 登录页：角色化入口（"我是学生 / 我是老师"），纯 CSS 渐变背景。
 
-![登录界面](docs/images/04-ui-login.png)
+![登录界面](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/04-ui-login.png)
 
 注册页：年级、姓名、密码、确认密码、性别、生日、邮箱、个人简介（250 字上限）。
 
 > 截图中密码、生日、邮箱三项已打码，报告封面学号亦已隐去——公开仓库不做个人信息留痕。
 
-![注册界面](docs/images/05-ui-register.png)
+![注册界面](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/05-ui-register.png)
 
 选课页：课程编号 / 名称 / 学分 / 当前人数·最大人数 / 年份 / 学期 / 教师 / 上课时间，一行一课一按钮。
 
-![选课界面](docs/images/06-ui-course-list.png)
+![选课界面](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/06-ui-course-list.png)
 
 课程详情：把课程、教师、时间地点、成绩、评语、评分收敛在一页。
 
-![课程详情](docs/images/07-ui-course-detail.png)
+![课程详情](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/07-ui-course-detail.png)
 
 已结课程：得分、评语、学生评分、学生评价并列展示，构成评教的双向闭环。
 
-![已结课程](docs/images/08-ui-finished-courses.png)
+![已结课程](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/08-ui-finished-courses.png)
 
 教师端：创建课程（课程名、介绍、学分、最大人数、年份、学期）。
 
-![教师端创建课程](docs/images/09-ui-teacher-create-course.png)
+![教师端创建课程](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/09-ui-teacher-create-course.png)
 
 教师端：给分（成绩 + 老师评价）。
 
-![教师端给分](docs/images/10-ui-teacher-grade.png)
+![教师端给分](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/10-ui-teacher-grade.png)
 
 ---
 
@@ -107,7 +107,7 @@
 
 四个实体、四个联系：教师 **创建** 课程（1:n）、学生 **选课** 课程（1:n，经 `学生课程` 落地）、课程 **对应** 学生课程（1:n）、课程 **拥有** 时刻表（1:n）。
 
-![E-R 图](docs/images/03-er-diagram.png)
+![E-R 图](https://cdn.jsdelivr.net/gh/xiaohuajia2005/course-selection-system-design@main/docs/images/03-er-diagram.png)
 
 同一模型的可读版本：
 
@@ -353,3 +353,4 @@ course-selection-system-design/
 - 报告为课程设计提交版本，仅作存档。**已做隐私处理**：封面学号以 `**********` 隐去；注册页截图中的密码、生日、邮箱已打码。姓名、专业、班级、任课教师保留原样，与本人公开简历一致。README 不复述任何身份信息。
 - 本仓库为**求职作品集用途**归档，不包含也不声称包含任何可运行代码。若需要代码样例，请参见本人其他仓库。
 - 报告中引用的第三方素材（校徽等）版权归原权利人所有，仅作课程存档使用。
+- 文中图片与 PDF 通过 jsDelivr CDN 引用（`cdn.jsdelivr.net/gh/<user>/<repo>@main/...`）。原因：GitHub 的图片代理域名在部分网络环境下不可达，用相对路径会导致整页图片加载失败。若日后 CDN 不可用，把链接换回 `docs/images/<文件名>` 的相对路径即可，仓库内文件始终是唯一数据源。
